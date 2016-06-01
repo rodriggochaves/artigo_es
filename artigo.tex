@@ -1,18 +1,27 @@
 % The LaTeX is in here!
 \documentclass{article}
 \usepackage{graphicx}
+\usepackage{ragged2e}
 \usepackage{parskip}
 \usepackage{float}
 \usepackage{hyperref}
 \usepackage[utf8]{inputenc}
 \setlength{\parindent}{4em}
-% \renewcommand{\baselinestretch}{2.0}
 \usepackage[english]{babel}
+\usepackage{geometry}
+  \geometry{
+    a4paper,
+    total={170mm,257mm},
+    left=30mm,
+    right=30mm,
+    top=20mm,
+  }
 \graphicspath{ {images/} }
 
 \begin{document}
     \begin{center}
     \includegraphics[scale=0.5]{unb}
+    \par
     \vspace{15mm}
     \textbf{Universidade de Brasília - UnB}\\
     \textbf{Instituto de Exatas}\\
@@ -22,7 +31,7 @@
     \textbf{Gabriel Mesquita - 13/0024242}\\
     \vspace{15mm}
     \textbf{Test-drive Development}\\
-    \vspace{15mm}
+    \vspace{100mm}
     \textbf{Brasília - DF}\\
     \textbf{2016}
   \end{center}
@@ -41,7 +50,7 @@
       final do software apresentanda à disciplina\\
       de Engenharia de Software da Universidade de Brasília.\\
     \end{flushright}
-    \vspace{60mm}
+    \vspace{150mm}
     \textbf{Brasília - DF}\\
     \textbf{2016}
   \end{center}
@@ -85,12 +94,20 @@
   \section{Design de Software em TDD}
 
   O Test-driven Development permite que o desenvolvedor que está trabalhando 
-  em um módulo pense como serão as responsabilidades, interfaces, serviços que serão
-  disponibilizados por esse módulo, enquanto escreve os testes. Depois,
-  quando vai escrever o código de produção, pode se preocupar somente em implementar
-  o necessário para passar nos teste já feitos. Fazendo assim, 
-  criamos um ritmo entre codificação e teste até que todos os testes criados sejam 
-  implementados.
+  em um módulo pense como serão as responsabilidades, interfaces, serviços os 
+  quais serão disponibilizados por esse módulo, enquanto escreve os testes. 
+  Depois, quando vai escrever o código de produção, pode se preocupar somente em
+  implementar o necessário para passar nos teste já feitos. Fazendo assim, 
+  criamos um ritmo entre codificação e teste até que todos os testes criados 
+  sejam implementados.
+
+  Pensando no design do projeto, os desenvolvedores do projeto podem criar
+  classes e módulos mais coesoes e menos acopladas por que, durante a fase de 
+  elaboração dos testes, conseguem visualizar a arquitetura geral da aplicação e
+  melhorar como o compenente que irão desenvolver irá conservar com os outros 
+  componentes. Em alguns testes, os desenvolvedores os escrevem usando o 
+  componente em desenvolvimento como já estivesse pronto e validam se
+  esse consegue ser comunicar com suas interfaces.
 
   Em Test-driven Development, o código desenvolvido é mantido dentro do controle
   intelectual do desenvolvedor, já que o próprio escreveu os testes e ele ou 
@@ -113,6 +130,7 @@
 
   \section{Referências}
 
+  \begin{flushleft}
   Nachiappan Nagappan, E. Michael Maximilien, Thirumalesh Bhat,
   Laurie Williams, Realizing quality improvement through test driven 
   development: results and experiences of four industrial teams. Disponível em
@@ -128,5 +146,11 @@
   Martin Fowler. Disponível em \url{http://www.biology.emory.edu/research/Prinz
   /Cengiz/cs540-485-FA12/resources/testDrivenDev.pdf}. Acessado em 30 de maio de
   2016.
+
+  Mauricio Finavaro Aniche, Como a prática de TDD influencia o projeto de 
+  classes em sistemas orientados a objetos. Disponível em 
+  \url{http://www.teses.usp.br/teses/disponiveis/45/45134/tde-31072012-181230
+  /publico/dissertacao.pdf}. Acessado em 30 de maio de 2016.
+  \end{flushleft}
 
 \end{document}
