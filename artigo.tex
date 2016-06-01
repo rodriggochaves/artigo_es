@@ -4,6 +4,8 @@
 \usepackage{ragged2e}
 \usepackage{parskip}
 \usepackage{float}
+\usepackage{listings}
+\newcommand{\code}[1]{\texttt{#1}}
 \usepackage{hyperref}
 \usepackage[utf8]{inputenc}
 \setlength{\parindent}{4em}
@@ -99,6 +101,30 @@
   \begin{figure}[H]
     \centering
     \includegraphics[scale=0.4]{tdd}
+    \caption{Fluxograma do TDD}
+  \end{figure}
+
+  \section{Automação de Testes}
+
+  No desenvolvimento orientado à Testes, uma ferramenta muito imporantante são
+  os frameworks de testes automatizados para a criação de objetos orientados
+  a testes de unidade. 
+
+  Em Java, por exemplo, o framework JUnit é comumente usado onde cada Classe 
+  Pública tem um class correspondente \code{<NomeDaClasse>TestCase}. Para cada
+  método público dessa classe, é criado um \code{test<NomeDoMétodo>} onde o 
+  contrato do método é testado. Além disso, outros \code{test<NomeDoMétodo>}s 
+  são criados para validar o comportamento desse método com diferentes 
+  parametros. A cada execução de um \code{test<NomeDoMétodo>}, um método 
+  \code{setUP} é chamado e esse é responsável por criar as variáveis de teste,
+  criar a instância de \code{<NomeDaClasse>} e executar o respectivo método.
+  No final, um método \code{tearDown} é chamado para resetar as variáveis.
+
+  [Falar sobre a automação de testes.]
+
+  \begin{figure}[H]
+    \centering
+    \includegraphics[scale=1.0]{tdd_micro}
     \caption{Fluxograma do TDD}
   \end{figure}
 
@@ -212,6 +238,14 @@
   extremme programming. Disponível em
   \url{http://www.improveit.com.br/xp/dissertacaoXP.pdf}. Acessado em 1º de 
   junho de 2016.
+
+  Laurie Williams, E. Michael Maximilien, Mladen Vouk, Test-Driven Development 
+  as a Defect-Reduction Practice. Disponível em 
+  \url{ftp://www.ufv.br/dpi/mestrado/TDD
+  /willians_TDD_Defect-Reducion_Practice.pdf}. Acessado em 1º de Junho de 2016.
+
+  André Faria Gomes, Agile, Desenvolvimento de Software com entregas frequentes
+  e foco no valor de negócio. Casa do Código.
   
   \end{flushleft}
 
