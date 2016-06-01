@@ -59,10 +59,21 @@
 
   \section{Introdução}
 
+  Hoje, no Brasil, não há dados confiáveis sobre quantos reais são perdidos por
+  software defeituosos, mas especialistas afirmam que 8 bilhões de reais é um
+  valor bem próximo da realidade brasileira. Um exemplo que pode demonstrar o 
+  prejuízo de um software mal fabricado pode causar foi a sonda espacial Mars 
+  Climate Orbiter, perdida na atmosfera de Marte por errar a unidade em um
+  cálculo, misturando as medidas de pés e metros.
+
+  Apesar desses danos de falhas serem custosos quando o software é colocado em
+  produção, essas falhas também podem causar dor de cabeça as desenvolvedores e
+  todos os stakeholders envolvidos durante a fase de desenvolvimento.
+
   \section{O que é Test-driven Development}
 
   Test-driven development é um prática de desenvolvimento de software que tem 
-  sido usada esporádicamente por decadas. Com essa pratica, um engenheiro de 
+  sido usada esporádicamente por decadas. Com essa prática, um engenheiro de 
   software passo por ciclos entre escrever um teste de unidade que falha e 
   escrevendo a implementação do software para passar nesses testes. 
   Test-driven development tem recentemente resurgindo como uma pratica critica 
@@ -115,6 +126,27 @@
   implementação, aumentando as funcionalidades do programa em um certo ritmo 
   contínuo.
 
+  \section{Desenvolvimento Ágil e Test-driven Development}
+
+  Test-driven development é uma prática sugerida dentro do "Extremming 
+  Programming", também muito conhecido por XP, por Kent Beck. XP é surgiu nos
+  Estados Unidos e tem ganhado bastante espaço no desenvolvimento de software
+  pois é um conjunto de valores, principios e práticas que fazem os softwares 
+  serem produzidos em menos tempo e de forma mais econômica que o habitual.
+
+  Desenvolvimento incremental é uma prática que não só traz benefícios. Ao se
+  adicionar novas funcionalidade a um software, há um risco de falhas serem 
+  introduzidas. O XP adotou o usou de Test-driven Development como um mecanismo
+  de proteção impedindo que algo que já estivesse funcionando fosse quebrado
+  e não detectado. “O desenvolvimento orientado a testes é uma forma de lidar 
+  com o medo durante a programação (BECK, 2003).”
+
+  Os testes automatizados criados pelos desenvolvedores formam uma base de 
+  testes que pode ser executada sempre que necessário visualizar se tudo está
+  funcionando normalmente. Isso não impede que falhas sejam inseridas, porém
+  é uma forma detecção possibilitando uma correção efetiva e barata, impedindo
+  que bugs se acumulem com o passar do tempo.
+
   \section{Objetivos ao se praticar TDD}
 
   TDD é uma prática de desenvolvimento que tem por objetivo garantir a
@@ -127,6 +159,8 @@
   Além disso, desenvolvedores experientes em TDD podem analisar se os testes 
   produzidos estão difíceis de serem feitos e podem fazer refactoring ou 
   mudanças.
+
+
 
   \section{Referências}
 
@@ -151,6 +185,17 @@
   classes em sistemas orientados a objetos. Disponível em 
   \url{http://www.teses.usp.br/teses/disponiveis/45/45134/tde-31072012-181230
   /publico/dissertacao.pdf}. Acessado em 30 de maio de 2016.
+
+  Roger Pressman, Software Engineering: A Practitioner’s Approach, 7/e 
+  (McGraw-Hill, 2009), capítulo 3.  Disponível em
+  \url{http://academic.brooklyn.cuny.edu/cis/sfleisher/Chapter_03_sim.pdf}.
+  Acessado em 1º de junho de 2016.
+
+  Vínicius Manhães Teles, Um estudo de caso da adoção das práticas e valores do
+  extremme programming. Disponível em
+  \url{http://www.improveit.com.br/xp/dissertacaoXP.pdf}. Acessado em 1º de 
+  junho de 2016.
+  
   \end{flushleft}
 
 \end{document}
