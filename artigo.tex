@@ -1,9 +1,12 @@
 % The LaTeX is in here!
-\documentclass{article}
+\documentclass[12pt]{article}
+\renewcommand{\baselinestretch}{1.5} 
 \usepackage{graphicx}
 \usepackage{ragged2e}
 \usepackage{parskip}
 \usepackage{float}
+\fontfamily{Arial}\selectfont
+\renewcommand{\familydefault}{\sfdefault}
 \usepackage{listings}
 \newcommand{\code}[1]{\texttt{#1}}
 \usepackage{hyperref}
@@ -25,17 +28,18 @@
     \includegraphics[scale=0.5]{unb}
     \par
     \vspace{15mm}
-    \textbf{Universidade de Brasília - UnB}\\
-    \textbf{Instituto de Exatas}\\
-    \textbf{Departamento de Ciência da Computação}\\
+    \normalsize{Universidade de Brasília - UnB}\\
+    \normalsize{Instituto de Exatas}\\
+    \normalsize{Departamento de Ciência da Computação}\\
     \vspace{15mm}
-    \textbf{Rodrigo Chaves - 13/0132624}\\
-    \textbf{Gabriel Mesquita - 13/0024242}\\
+    \normalsize{Rodrigo Chaves - 13/0132624}\\
+    \normalsize{Gabriel Mesquita - 13/0024242}\\
     \vspace{15mm}
-    \textbf{Test-drive Development}\\
-    \vspace{100mm}
-    \textbf{Brasília - DF}\\
-    \textbf{2016}
+    \Huge{Test-drive Development}\\
+
+    \vspace{60mm}
+    \normalsize{Brasília - DF}\\
+    \textnormal{2016}
   \end{center}
 
   \clearpage
@@ -44,17 +48,15 @@
     Gabriel Mesquita ...\\
     Rodrigo de Araujo Chaves\\
     \vspace{30mm}
-    \textbf{Test-driven Development}
+    \Huge{Test-driven Development}
     \vspace{30mm}
+    \normalsize{}
     \begin{flushright}
       Dissertação sobre por que Test-driven development\\
       é pratica que melhorar a qualidade\\
       final do software apresentanda à disciplina\\
       de Engenharia de Software da Universidade de Brasília.\\
     \end{flushright}
-    \vspace{150mm}
-    \textbf{Brasília - DF}\\
-    \textbf{2016}
   \end{center}
 
   \clearpage
@@ -110,7 +112,7 @@
   os frameworks de testes automatizados para a criação de objetos orientados
   a testes de unidade. 
 
-  Em Java, por exemplo, o framework JUnit é comumente usado onde cada Classe 
+  Em Ruby, por exemplo, o framework \code{RSpec} é comumente usado onde cada Classe 
   Pública tem um class correspondente \code{<NomeDaClasse>TestCase}. Para cada
   método público dessa classe, é criado um \code{test<NomeDoMétodo>} onde o 
   contrato do método é testado. Além disso, outros \code{test<NomeDoMétodo>}s 
@@ -120,12 +122,17 @@
   criar a instância de \code{<NomeDaClasse>} e executar o respectivo método.
   No final, um método \code{tearDown} é chamado para resetar as variáveis.
 
-  [Falar sobre a automação de testes.]
+  Uma prática comum do usos do framework de automação de testes é usar cores
+  para expressar o resultados da suíte de testes. Caso algum teste não passe,
+  a cor vermelha é usada para indicar a atenção do desenvolvedor. Caso todos os
+  testes passem, usamos a cor verde para indicar os resultados dos testes. A 
+  imagem a baixo demonstra de forma simplificada qual é o ritmo comum dentro do
+  ciclo do Test-driven Development.
 
   \begin{figure}[H]
     \centering
     \includegraphics[scale=1.0]{tdd_micro}
-    \caption{Fluxograma do TDD}
+    \caption{Colograma do TDD}
   \end{figure}
 
   \section{Design de Software em TDD}
