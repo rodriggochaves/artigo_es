@@ -112,15 +112,19 @@
   os frameworks de testes automatizados para a criação de objetos orientados
   a testes de unidade. 
 
-  Em Ruby, por exemplo, o framework \code{RSpec} é comumente usado onde cada Classe 
-  Pública tem um class correspondente \code{<NomeDaClasse>TestCase}. Para cada
-  método público dessa classe, é criado um \code{test<NomeDoMétodo>} onde o 
-  contrato do método é testado. Além disso, outros \code{test<NomeDoMétodo>}s 
+  Em Ruby, por exemplo, o framework \code{RSpec} é comumente usado onde cada 
+  Classe Pública tem um class correspondente 
+  \code{RSpec.describe <NomeDaClasse>}. Para cada método público dessa classe, 
+  é criado um teste \code{it " <NomeDoMétodo> "} onde o 
+  contrato do método é testado. Além disso, outros 
+  \code{it " <NomeDaFuncionalidade> "}
   são criados para validar o comportamento desse método com diferentes 
-  parametros. A cada execução de um \code{test<NomeDoMétodo>}, um método 
-  \code{setUP} é chamado e esse é responsável por criar as variáveis de teste,
-  criar a instância de \code{<NomeDaClasse>} e executar o respectivo método.
-  No final, um método \code{tearDown} é chamado para resetar as variáveis.
+  parametros. A cada execução de um \code{it}, um método 
+  \code{before} é chamado e esse é responsável por criar as variáveis de teste,
+  criar a instância de \code{<NomeDaClasse>} que serão usadas em um ou mais 
+  métodos. Além disso, pode-se criar contextos onde um conjunto mais especifico
+  de testes pode ser executado dentro de uma \code{context} e definir variáveis
+  para esse contexto.
 
   Uma prática comum do usos do framework de automação de testes é usar cores
   para expressar o resultados da suíte de testes. Caso algum teste não passe,
