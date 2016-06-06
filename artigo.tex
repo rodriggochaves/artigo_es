@@ -4,12 +4,23 @@
 \usepackage{graphicx}
 \usepackage{ragged2e}
 \usepackage{parskip}
+\usepackage{xcolor}
 \usepackage{float}
 \fontfamily{Arial}\selectfont
 \renewcommand{\familydefault}{\sfdefault}
 \usepackage{listings}
 \newcommand{\code}[1]{\texttt{#1}}
 \usepackage{hyperref}
+\usepackage{listings}
+\lstloadlanguages{Ruby}
+\lstloadlanguages{Bash}
+\lstset{basicstyle=\ttfamily,
+  showstringspaces=false,
+  commentstyle=\color{lightgray},
+  keywordstyle=\color{blue},
+  backgroundcolor = \color{lightgray!10},
+  basicstyle=\small,
+}
 \usepackage[utf8]{inputenc}
 \setlength{\parindent}{4em}
 \usepackage[english]{babel}
@@ -33,7 +44,7 @@
     \normalsize{Departamento de Ciência da Computação}\\
     \vspace{15mm}
     \normalsize{Rodrigo Chaves - 13/0132624}\\
-    \normalsize{Gabriel Mesquita - 13/0024242}\\
+    \normalsize{Gabriel Mesquita - 13/0009121}\\
     \vspace{15mm}
     \Huge{Test-driven Development}\\
 
@@ -45,7 +56,7 @@
   \clearpage
 
   \begin{center}
-    Gabriel Mesquita ...\\
+    Gabriel Mesquita de Araujo\\
     Rodrigo de Araujo Chaves\\
     \vspace{30mm}
     \Huge{Test-driven Development}
@@ -138,6 +149,145 @@
     \includegraphics[scale=1.0]{tdd_micro}
     \caption{Colograma do TDD}
   \end{figure}
+
+  \section{Um exemplo de TDD}
+
+  Para demonstrar como fazermos TDD, iremos usar o framework RSpec em Ruby para
+  criar uma calculadora. Iniciamos nossa calculadora criando nosso primeiro 
+  teste:
+
+  \begin{lstlisting}[language=Ruby]
+  # Arquivo Calculator_rspec.rb
+
+  RSpec.describe Calculator do
+  end
+  \end{lstlisting}
+
+  Executando esse teste, teremos esse resultado. Para executar a suíte de teste
+  do RSpec, chamamos o comando rspec no terminal:
+
+  \begin{lstlisting}[language=bash]
+  $ rspec
+  uninitialized constant Calculator (NameError)
+  \end{lstlisting}
+
+  Com esse, identificamos que o próximo passo é criar a classe \code{Calculator}
+
+  \begin{lstlisting}[language=Ruby]
+  # Arquivo Calculator.rb
+
+  class Calculator
+  end
+  \end{lstlisting}
+
+  Executando a suíte de teste novamente.
+
+  \begin{lstlisting}[language=bash]
+  $ rspec
+  No examples found.
+
+
+  Finished in 0.00043 seconds 
+  (files took 0.15324 seconds to load)
+  0 examples, 0 failures
+  \end{lstlisting}
+
+  Passando pelo nosso primeiro teste, voltamos a escreve teste. Vamos escrever
+  um teste que espera que nossa calculadora faça uma soma simples de 1 mais 2
+  e encontre o resultado 3.
+
+  \begin{lstlisting}[language=Ruby]
+  # Arquivo Calculator_rspec.rb
+
+  RSpec.describe Calculator do
+    describe "#add" do
+      it "returns the sum of its arguments" do
+        expect(Calculator.new.add(1,2)).to eq(3)
+      end
+    end
+  end
+  \end{lstlisting}
+
+  Esse novo teste é descrito dentro de um bloco \code{add} onde todos os 
+  compartamentos desse método são testados. Executando a suíte de testes
+  novamente.
+
+  \begin{lstlisting}[language=bash]
+  $ rspec
+  F
+
+  Failures:
+
+    1) Calculator#add returns the sum of its arguments 
+       Failure/Error: expect(@calculator.add(1,2)).to eq(3)
+       
+       NoMethodError:
+         undefined method `add' for nil:NilClass
+       # ./spec/calculator_spec.rb:10:in `block (3 levels) 
+       in <top (required)>'
+
+  Finished in 0.00069 seconds (files took 0.15787 seconds 
+  to load) 1 example, 1 failure
+
+  Failed examples:
+
+  rspec ./spec/calculator_spec.rb:9 # Calculator#add returns 
+  the sum of its arguments 
+  \end{lstlisting}
+  
+  Temos um novo erro. Agora temos um teste em vermelho, podemos codificar a
+  nossa class \code{Calculator}. Vamos fazer um método que retorne a soma de
+  dois parâmetros.
+
+  \begin{lstlisting}[language=Ruby]
+  # Arquivo Calculator.rb
+
+  class Calculator
+    def add a, b
+      return a + b
+    end
+  end
+  \end{lstlisting}
+
+  Executa-se novamente a suíte de testes.
+
+  \begin{lstlisting}[language=bash]
+  $ rspec
+  .
+
+  Finished in 0.00158 seconds (files took 0.19148 seconds to 
+  load)
+  1 example, 0 failures
+  \end{lstlisting}
+
+  Agora iremos testar se o nosso método \code{add} consegue somar um número
+  negativo.
+
+  \begin{lstlisting}[language=Ruby]
+  RSpec.describe Calculator do
+
+    describe "#add" do
+      it 'returns the sum of its arguments ' do
+        expect(Calculator.new.add(1,2)).to eq(3)
+      end
+
+      it 'can calculate with negative param' do
+        expect(Calculator.new.add(1, -2)).to eq(-1)
+      end
+    end
+  end
+  \end{lstlisting}
+
+  Executando novamente a suíte de testes.
+
+  \begin{lstlisting}[language=bash]
+  $ rspec
+  ..
+
+  Finished in 0.00231 seconds (files took 0.18369 seconds to 
+  load)
+  2 examples, 0 failures
+  \end{lstlisting}
 
   \section{Design de Software em TDD}
 
