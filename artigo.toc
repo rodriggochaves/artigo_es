@@ -7,4 +7,5 @@
 \contentsline {section}{\numberline {6}Desenvolvimento \IeC {\'A}gil e Test-driven Development}{10}{section.6}
 \contentsline {section}{\numberline {7}Objetivos ao se praticar TDD}{10}{section.7}
 \contentsline {section}{\numberline {8}Depura\IeC {\c c}\IeC {\~a}o}{11}{section.8}
-\contentsline {section}{\numberline {9}Refer\IeC {\^e}ncias}{11}{section.9}
+\contentsline {section}{\numberline {9}Conclus\IeC {\~a}o}{11}{section.9}
+\contentsline {section}{\numberline {10}Refer\IeC {\^e}ncias}{12}{section.10}

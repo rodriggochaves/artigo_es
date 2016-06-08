@@ -64,7 +64,7 @@
     \normalsize{}
     \begin{flushright}
       Dissertação sobre por que Test-driven development\\
-      é pratica que melhorar a qualidade\\
+      é pratica que melhora a qualidade\\
       final do software apresentanda à disciplina\\
       de Engenharia de Software da Universidade de Brasília.\\
     \end{flushright}
@@ -93,11 +93,11 @@
 
   \section{O que é Test-driven Development}
 
-  Test-driven development é um prática de desenvolvimento de software que tem 
-  sido usada esporádicamente por decadas. Com essa prática, um engenheiro de 
-  software passo por ciclos entre escrever um teste de unidade que falha e 
+  Test-driven development é uma prática de desenvolvimento de software que tem 
+  sido usada esporádicamente por décadas. Com essa prática, um engenheiro de 
+  software passa por ciclos entre escrever um teste de unidade que falha e 
   escrevendo a implementação do software para passar nesses testes. 
-  Test-driven development tem recentemente resurgindo como uma pratica critica 
+  Test-driven development tem recentemente ressurgindo como uma prática crítica 
   possibilitando metodologias de desenvolvimento ágil de software.
 
   Quando discutimos sobre TDD, é considerado um conjunto de tarefas requiridas 
@@ -110,9 +110,9 @@
     para a suíte de teste falhar.
     \item Depois executamos nossa suíte para confirmar que os testes realmente 
     estão falhando.
-    \item Agora atualize-se o código funcional afim de passar no novo teste.
+    \item Agora atualiza-se o código funcional afim de passar no novo teste.
     \item Executamos a suíte de teste para verificarmos se agora realmente 
-    passarmos no novo teste.
+    passamos no novo teste.
     \item Agora com o teste passando: são removidos as duplicações de código 
     afim de limpar o código.
   \end{enumerate}
@@ -143,7 +143,7 @@
   de testes pode ser executado dentro de uma \code{context} e definir variáveis
   para esse contexto.
 
-  Uma prática comum do usos do framework de automação de testes é usar cores
+  Uma prática comum dos framework de automação de testes é usar cores
   para expressar o resultados da suíte de testes. Caso algum teste não passe,
   a cor vermelha é usada para indicar a atenção do desenvolvedor. Caso todos os
   testes passem, usamos a cor verde para indicar os resultados dos testes. A 
@@ -158,7 +158,7 @@
 
   \section{Um exemplo de TDD}
 
-  Para demonstrar como fazermos TDD, iremos usar o framework RSpec em Ruby para
+  Para demonstrar como fazemos TDD, iremos usar o framework RSpec em Ruby para
   criar uma calculadora. Iniciamos nossa calculadora criando nosso primeiro 
   teste:
 
@@ -198,9 +198,9 @@
   0 examples, 0 failures
   \end{lstlisting}
 
-  Passando pelo nosso primeiro teste, voltamos a escreve teste. Vamos escrever
-  um teste que espera que nossa calculadora faça uma soma simples de 1 mais 2
-  e encontre o resultado 3.
+  Passando pelo nosso primeiro teste, voltamos a escrever os testes. Vamos 
+  escrever um teste que espera que nossa calculadora faça uma soma simples de 
+  1 mais 2 e encontre o resultado 3.
 
   \begin{lstlisting}[language=Ruby]
   # Arquivo Calculator_rspec.rb
@@ -301,21 +301,21 @@
   em um módulo pense como serão as responsabilidades, interfaces, serviços os 
   quais serão disponibilizados por esse módulo, enquanto escreve os testes. 
   Depois, quando vai escrever o código de produção, pode se preocupar somente em
-  implementar o necessário para passar nos teste já feitos. Fazendo assim, 
+  implementar o necessário para passar nos testes já feitos. Fazendo assim, 
   criamos um ritmo entre codificação e teste até que todos os testes criados 
   sejam implementados.
 
   Pensando no design do projeto, os desenvolvedores do projeto podem criar
-  classes e módulos mais coesoes e menos acopladas por que, durante a fase de 
+  classes e módulos mais coesos e menos acopladas por que, durante a fase de 
   elaboração dos testes, conseguem visualizar a arquitetura geral da aplicação e
-  melhorar como o compenente que irão desenvolver irá conservar com os outros 
+  melhorar como o componente que irão desenvolver conversa com os outros 
   componentes. Em alguns testes, os desenvolvedores os escrevem usando o 
   componente em desenvolvimento como já estivesse pronto e validam se
-  esse consegue ser comunicar com suas interfaces.
+  esse consegue se comunicar com suas interfaces.
 
   Em Test-driven Development, o código desenvolvido é mantido dentro do controle
   intelectual do desenvolvedor, já que o próprio escreveu os testes e ele ou 
-  ela está fazendo continuadamente pequenas alterações de design e decisões de 
+  ela está fazendo continuamente pequenas alterações de design e decisões de 
   implementação, aumentando as funcionalidades do programa em um certo ritmo 
   contínuo.
 
@@ -329,7 +329,7 @@
 
   Desenvolvimento incremental é uma prática que não só traz benefícios. Ao se
   adicionar novas funcionalidade a um software, há um risco de falhas serem 
-  introduzidas. O XP adotou o usou de Test-driven Development como um mecanismo
+  introduzidas. O XP adotou o uso de Test-driven Development como um mecanismo
   de proteção impedindo que algo que já estivesse funcionando fosse quebrado
   e não detectado. “O desenvolvimento orientado a testes é uma forma de lidar 
   com o medo durante a programação (BECK, 2003).”
@@ -337,7 +337,7 @@
   Os testes automatizados criados pelos desenvolvedores formam uma base de 
   testes que pode ser executada sempre que necessário visualizar se tudo está
   funcionando normalmente. Isso não impede que falhas sejam inseridas, porém
-  é uma forma detecção possibilitando uma correção efetiva e barata, impedindo
+  é uma forma de detecção possibilitando uma correção efetiva e barata, impedindo
   que bugs se acumulem com o passar do tempo.
 
   \section{Objetivos ao se praticar TDD}
@@ -347,7 +347,7 @@
   desenvolvimento, todo o código elaborado é desenvolvido em conjunto com uma
   suíte de testes automatizados. Esses testes permitem uma segurança maior ao
   desenvolvedor quando precisa mudar algo que já foi implementado ou precisa 
-  refotaror o código.
+  refatorar o código.
 
   Além disso, desenvolvedores experientes em TDD podem analisar se os testes 
   produzidos estão difíceis de serem feitos e podem fazer refactoring ou 
@@ -358,19 +358,37 @@
   Quando é detectado um defeito em um software, é necessário consertá-lo. Nesse
   momento, entramos na fase de depuração. Se observamos os programadores 
   realizando suas atividades, iremos perceber que eles levam mais tempo é 
-  depurando. Uma pequena parte é feita a codificação propriamente dita. O 
-  restante do tempo é gasto projetando-se e entendo o que deve ser feito.
+  depurando. Ou seja, procurando por falhas.
+  Uma pequena parte do tempo de desenvolvimento é usado para a 
+  codificação propriamente dita. O 
+  restante do tempo é gasto projetando-se e entendendo o que deve ser feito.
 
   Consertar a falha identificada é fácil, porém encontrar onde está acontecendo
   o problema é o que leva a fase de depuração ser tão longa. As equipes de 
   desenvolvimento podem usar o Test-driven Development para serem capazes de
-  identificar mais rápidamente essas falhas.
+  identificar mais rapidamente essas falhas.
 
-  Além disso, ao se consertar um falha local, existe uma possibilidade (entre
+  Além disso, ao se consertar uma falha local, existe uma possibilidade (entre
   20 a 50 por cento) de se introduzir uma nova falha. As bases de testes 
   automatizados facilitam a garantir que as correções feitas não introduzem 
   novos problemas pois conseguem testar as outras funcionalidades do sistema
   ao ser executada.
+
+  \section{Conclusão}
+
+  Em vista dos fatos mencionados, é possível observar que o test-driven development 
+  sem dúvida auxilia o processo de desenvolvimento de software de diversas
+  maneiras. Essa prática melhora a qualidade do software como já foi discutido
+  e se utilizado corretamente diminui custos relacionados a correção de bugs 
+  ou refactoring de códigos complexos, boiler-plate e etc.
+
+  É de extrema importância mencionar que o TDD é uma prática útil, porém nem 
+  sempre é a melhor solução para um determinado problema. O contexto da empresa, 
+  do sistema e dos stakeholders devem ser analisados para avaliar se o TDD vai 
+  ser útil ou não. Ou seja, a falta desse tipo de análise pode gerar custos 
+  desnecessários ao desenvolvimento tanto monétarios quanto relacionados ao 
+  tempo de desenvolvimento.
+  \clearpage
 
   \section{Referências}
 
