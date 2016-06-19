@@ -71,8 +71,8 @@
   \end{center}
 
   \clearpage
-
   \renewcommand*\contentsname{Sumário}
+  
 
   \tableofcontents
 
@@ -97,9 +97,9 @@
   na verificação de erros quanto na identificação dos mesmo. Uma dessas técnicas
   é o Desenvolvimento Orientado a Testes.
 
-  \section{O que é Desenvolvimento Orientado a Testes}
+  \section{O que é Desenvolvimento Orientado a Testes (TDD)}
 
-  Desenvolvimento Orientado a Testes
+  Desenvolvimento Orientado a Testes (TDD)
    é uma prática de desenvolvimento de software que tem 
   sido usada esporadicamente por décadas, porém tem recentemente ressurgindo 
   como uma prática crítica 
@@ -133,8 +133,8 @@
 
   \section{Automação de Testes}
 
-  No desenvolvimento orientado a testes, algumas ferramentas importantes são
-  os frameworks de testes automatizados para a criação de objetos orientados
+  No desenvolvimento orientado a testes, as ferramentas mais importantes são
+  os frameworks de testes automatizados usadas para a criar objetos orientados
   a testes de unidade. 
 
   Vamos construir um exemplo de uma calculadora 
@@ -143,11 +143,11 @@
   partir da linha de comando. O Framework RSpec permite que sejam criados contextos
   diferentes para cada situação que iremos colocar a teste nosso programa. No exemplo,
   pode-se criar um contexto diferente para cada operação da calculadora. Dentro dos
-  contextos, pode-se criar variáveis específicas que estaram disponíveis para todos 
-  os testes do contextos. Isso permite que nossos testes sejam escritos de forma 
+  contextos, pode-se criar variáveis específicas que estarão disponíveis para todos 
+  os testes dentro daquele contexto. Isso permite que nossos testes sejam escritos de forma 
   mais modularizada e organizada.
 
-  Uma prática comum dos framework de automação de testes é usar cores
+  Uma prática comum dos frameworks de automação de testes é usar cores
   para expressar o resultados da suíte de testes. Caso algum teste não passe,
   a cor vermelha é usada para chamar a atenção do desenvolvedor. Caso todos os
   testes passem, usa-se a cor verde para imprimir os resultados. A 
@@ -162,9 +162,7 @@
 
   \section{Um exemplo de TDD}
 
-  Para demonstrar como fazemos TDD, iremos usar o framework RSpec em Ruby para
-  criar uma calculadora. Iniciamos nossa calculadora criando nosso primeiro 
-  teste:
+  Iniciamos nossa calculadora criando nosso primeiro teste:
 
   \begin{lstlisting}[language=Ruby]
   # Arquivo Calculator_rspec.rb
@@ -173,15 +171,17 @@
   end
   \end{lstlisting}
 
-  Executando esse teste, teremos esse resultado. Para executar a suíte de teste
-  do RSpec, chamamos o comando rspec no terminal:
+  Para executar a suíte de teste
+  do RSpec, chamamos o comando rspec no terminal. Assim teremos o seguinte
+  resultado:
 
   \begin{lstlisting}[language=bash]
   $ rspec
   uninitialized constant Calculator (NameError)
   \end{lstlisting}
 
-  Com esse, identificamos que o próximo passo é criar a classe \code{Calculator}
+  Com esse resultado, 
+  identificamos que o próximo passo é criar a classe \code{Calculator}
 
   \begin{lstlisting}[language=Ruby]
   # Arquivo Calculator.rb
@@ -190,20 +190,19 @@
   end
   \end{lstlisting}
 
-  Executando a suíte de teste novamente.
+  Executando a suíte de teste novamente:
 
   \begin{lstlisting}[language=bash]
   $ rspec
   No examples found.
-
 
   Finished in 0.00043 seconds 
   (files took 0.15324 seconds to load)
   0 examples, 0 failures
   \end{lstlisting}
 
-  Passando pelo nosso primeiro teste, voltamos a escrever os testes. Vamos 
-  escrever um teste que espera que nossa calculadora faça uma soma simples de 
+  Verifica-se que não existem falhas. Voltamos a escrever os testes. Vamos 
+  escrever um teste que verifica que nossa calculadora faça uma soma simples de 
   1 mais 2 e encontre o resultado 3.
 
   \begin{lstlisting}[language=Ruby]
@@ -227,25 +226,13 @@
   F
 
   Failures:
-
-    1) Calculator#add returns the sum of its arguments 
-       Failure/Error: expect(@calculator.add(1,2)).to eq(3)
-       
-       NoMethodError:
-         undefined method `add' for nil:NilClass
-       # ./spec/calculator_spec.rb:10:in `block (3 levels) 
-       in <top (required)>'
-
-  Finished in 0.00069 seconds (files took 0.15787 seconds 
-  to load) 1 example, 1 failure
-
-  Failed examples:
-
-  rspec ./spec/calculator_spec.rb:9 # Calculator#add returns 
-  the sum of its arguments 
+  1) Calculator#add returns the sum of its arguments 
+     Failure/Error: expect(@calculator.add(1,2)).to eq(3)
+     
+     NoMethodError
   \end{lstlisting}
   
-  Temos um novo erro. Agora temos um teste em vermelho, podemos codificar a
+  Temos um novo erro. Agora que tem-se um teste em vermelho, podemos codificar a
   nossa class \code{Calculator}. Vamos fazer um método que retorne a soma de
   dois parâmetros.
 
@@ -299,37 +286,50 @@
   2 examples, 0 failures
   \end{lstlisting}
 
-  \section{Design de Software em TDD}
+  Assim, finaliza-se esse exemplo e, por mais que seja simples, 
+  pode-se observar
+  o funcionamento e o ritmo do desenvolvimento orientado a testes.
+
+  \section{Design de Software em Desenvolvimento Orientado a Testes}
 
   O Desenvolvimento Orientado a Testes permite que o desenvolvedor que está 
   trabalhando 
   em um módulo pense como serão as responsabilidades, interfaces e serviços que 
-  serão disponibilizados por esse módulo, enquanto escreve os testes. 
+  serão disponibilizados por esse módulo enquanto escreve os testes. 
   Depois, quando vai escrever o código de produção, pode se preocupar somente em
   implementar o necessário para passar nos testes já feitos. Fazendo assim, 
   criamos um ritmo entre codificação e teste até que todos os testes criados 
   sejam implementados.
 
-  Pensando no design do projeto, os desenvolvedores do projeto podem criar
+  Pensando no design do projeto, os desenvolvedores podem criar
   classes e módulos mais coesos e menos acoplados por que, durante a fase de 
   elaboração dos testes, conseguem visualizar a arquitetura geral da aplicação e
-  melhorar como o componente que irão desenvolver conversa com os outros 
-  componentes. Em alguns testes, os desenvolvedores os escrevem usando o 
+  melhorar como o componente se comunica com outros 
+  componentes. Em alguns casos, os desenvolvedores escrevem os testes usando o 
   componente em desenvolvimento como já estivesse pronto e validam se
   esse consegue se comunicar com suas interfaces.
 
   Em Desenvolvimento Orientado a Testes, o código desenvolvido é mantido dentro do controle
-  intelectual do desenvolvedor, já que o próprio escreveu os testes e ele ou 
-  ela está fazendo continuamente pequenas alterações de design e decisões de 
+  intelectual do desenvolvedor, já que o próprio escreveu os testes. Assim,
+  ele pode fazer continuamente pequenas alterações de design e decisões de 
   implementação, aumentando as funcionalidades do programa em um certo ritmo 
   contínuo.
+
+  \section{Objetivos quando se desenvolve orientado a testes}
+
+  TDD é uma prática de desenvolvimento que tem por objetivo garantir a
+  qualidade e a confiabilidade do produto o mais rápido possível. Ao decorrer do
+  desenvolvimento, todo o código elaborado é desenvolvido em conjunto com uma
+  suíte de testes automatizados. Esses testes permitem uma segurança maior ao
+  desenvolvedor quando precisa mudar algo que já foi implementado ou precisa 
+  refatorar o código.
 
   \section{Desenvolvimento Ágil e Desenvolvimento Orientado a Testes}
 
   Desenvolvimento Orientado a Testes é uma prática sugerida dentro do "Extremming 
   Programming", também muito conhecido por XP, por Kent Beck. XP surgiu nos
-  Estados Unidos e tem ganhado bastante espaço no desenvolvimento de software
-  pois é um conjunto de valores, principios e práticas que fazem os softwares 
+  Estados Unidos e tem ganhado bastante espaço no desenvolvimento de software.
+  Consiste em um conjunto de valores, principios e práticas que fazem os softwares 
   serem produzidos em menos tempo e de forma mais econômica que o habitual.
 
   Desenvolvimento incremental é uma prática que não traz só benefícios. Ao se
@@ -344,20 +344,8 @@
   testes que pode ser executada sempre que for necessário visualizar se tudo está
   funcionando normalmente. Isso não impede que falhas sejam inseridas, porém
   é uma forma de detecção possibilitando uma correção efetiva e barata, impedindo
-  que bugs se acumulem com o passar do tempo.
-
-  \section{Objetivos ao se praticar TDD}
-
-  TDD é uma prática de desenvolvimento que tem por objetivo garantir a
-  qualidade e a confiabilidade do produto o mais rápido possível. Ao decorrer do
-  desenvolvimento, todo o código elaborado é desenvolvido em conjunto com uma
-  suíte de testes automatizados. Esses testes permitem uma segurança maior ao
-  desenvolvedor quando precisa mudar algo que já foi implementado ou precisa 
-  refatorar o código.
-
-  Além disso, desenvolvedores experientes em TDD podem analisar se os testes 
-  produzidos estão difíceis de serem feitos e podem fazer refactoring ou 
-  mudanças.
+  que bugs se acumulem com o passar do tempo. Esse processo facilita uma fase 
+  dentro do desenvolvimento, chamada de depuração.
 
   \section{Depuração}
 
@@ -366,8 +354,7 @@
   realizando suas atividades, iremos perceber que eles levam mais tempo é 
   depurando. Ou seja, procurando por falhas.
   Uma pequena parte do tempo de desenvolvimento é usado para a 
-  codificação propriamente dita. O 
-  restante do tempo é gasto projetando-se e entendendo o que deve ser feito.
+  codificação propriamente dita.
 
   Consertar a falha identificada é fácil, porém encontrar onde está acontecendo
   o problema é o que leva a fase de depuração ser tão longa. As equipes de 
