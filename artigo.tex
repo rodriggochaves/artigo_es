@@ -46,7 +46,7 @@
     \normalsize{Rodrigo Chaves - 13/0132624}\\
     \normalsize{Gabriel Mesquita - 13/0009121}\\
     \vspace{15mm}
-    \Huge{Test-driven Development}\\
+    \Huge{Desenvolvimento Orientado a Testes}\\
 
     \vspace{60mm}
     \normalsize{Brasília - DF}\\
@@ -59,12 +59,12 @@
     Gabriel Mesquita de Araujo\\
     Rodrigo de Araujo Chaves\\
     \vspace{30mm}
-    \Huge{Test-driven Development}
+    \Huge{Desenvolvimento Orientado a Testes}
     \vspace{30mm}
     \normalsize{}
     \begin{flushright}
-      Dissertação sobre por que Test-driven development\\
-      é pratica que melhora a qualidade\\
+      Dissertação sobre por que Desenvolvimento Orientado a Testes\\
+      é uma prática que melhora a qualidade\\
       final do software apresentanda à disciplina\\
       de Engenharia de Software da Universidade de Brasília.\\
     \end{flushright}
@@ -88,33 +88,41 @@
   cálculo, misturando as medidas de pés e metros.
 
   Apesar desses danos de falhas serem custosos quando o software é colocado em
-  produção, essas falhas também podem causar dor de cabeça as desenvolvedores e
+  produção, essas falhas também podem causar dor de cabeça aos desenvolvedores e
   todos os stakeholders envolvidos durante a fase de desenvolvimento.
 
-  \section{O que é Test-driven Development}
+  Com isso, pode-se observar que a produção de software pode trazer problemas
+  durante a sua produção e depois que o software começa a ser usado por seus
+  clientes reais. Por isso, devemos utilizar técnicas que nos beneficiem tanto
+  na verificação de erros quanto na identificação dos mesmo. Uma dessas técnicas
+  é o Desenvolvimento Orientado a Testes.
 
-  Test-driven development é uma prática de desenvolvimento de software que tem 
-  sido usada esporádicamente por décadas. Com essa prática, um engenheiro de 
+  \section{O que é Desenvolvimento Orientado a Testes}
+
+  Desenvolvimento Orientado a Testes
+   é uma prática de desenvolvimento de software que tem 
+  sido usada esporadicamente por décadas, porém tem recentemente ressurgindo 
+  como uma prática crítica 
+  possibilitando metodologias de desenvolvimento ágil de software. Com essa 
+  prática, um engenheiro de 
   software passa por ciclos entre escrever um teste de unidade que falha e 
   escrevendo a implementação do software para passar nesses testes. 
-  Test-driven development tem recentemente ressurgindo como uma prática crítica 
-  possibilitando metodologias de desenvolvimento ágil de software.
 
   Quando discutimos sobre TDD, é considerado um conjunto de tarefas requiridas 
   que podem ser implementadas em poucos dias ou menos. Na imagem 1, engenheiros 
-  de software produzem código de produção através de rápidas interações como as 
+  de software produzem código de produção através de rápidas iterações como as 
   que seguem:
 
   \begin{enumerate}
-    \item O primeiro passo é adicionar um teste simples o qual é suficiente 
+    \item O primeiro passo é adicionar um teste simples o é suficiente 
     para a suíte de teste falhar.
     \item Depois executamos nossa suíte para confirmar que os testes realmente 
     estão falhando.
     \item Agora atualiza-se o código funcional afim de passar no novo teste.
     \item Executamos a suíte de teste para verificarmos se agora realmente 
     passamos no novo teste.
-    \item Agora com o teste passando: são removidos as duplicações de código 
-    afim de limpar o código.
+    \item Agora com o teste passando: são removidas as duplicações de código 
+    a fim de limpar o código.
   \end{enumerate}
 
   \begin{figure}[H]
@@ -125,30 +133,26 @@
 
   \section{Automação de Testes}
 
-  No desenvolvimento orientado à Testes, uma ferramenta muito imporantante são
+  No desenvolvimento orientado a testes, algumas ferramentas importantes são
   os frameworks de testes automatizados para a criação de objetos orientados
   a testes de unidade. 
 
-  Em Ruby, por exemplo, o framework \code{RSpec} é comumente usado onde cada 
-  Classe Pública tem um class correspondente 
-  \code{RSpec.describe <NomeDaClasse>}. Para cada método público dessa classe, 
-  é criado um teste \code{it " <NomeDoMétodo> "} onde o 
-  contrato do método é testado. Além disso, outros 
-  \code{it " <NomeDaFuncionalidade> "}
-  são criados para validar o comportamento desse método com diferentes 
-  parametros. A cada execução de um \code{it}, um método 
-  \code{before} é chamado e esse é responsável por criar as variáveis de teste,
-  criar a instância de \code{<NomeDaClasse>} que serão usadas em um ou mais 
-  métodos. Além disso, pode-se criar contextos onde um conjunto mais especifico
-  de testes pode ser executado dentro de uma \code{context} e definir variáveis
-  para esse contexto.
+  Vamos construir um exemplo de uma calculadora 
+  na linguagem Ruby usando o framework de testes RSpec.
+  Usando essas ferramentas, podemos executar nossos testes de forma bem simples a
+  partir da linha de comando. O Framework RSpec permite que sejam criados contextos
+  diferentes para cada situação que iremos colocar a teste nosso programa. No exemplo,
+  pode-se criar um contexto diferente para cada operação da calculadora. Dentro dos
+  contextos, pode-se criar variáveis específicas que estaram disponíveis para todos 
+  os testes do contextos. Isso permite que nossos testes sejam escritos de forma 
+  mais modularizada e organizada.
 
   Uma prática comum dos framework de automação de testes é usar cores
   para expressar o resultados da suíte de testes. Caso algum teste não passe,
-  a cor vermelha é usada para indicar a atenção do desenvolvedor. Caso todos os
-  testes passem, usamos a cor verde para indicar os resultados dos testes. A 
+  a cor vermelha é usada para chamar a atenção do desenvolvedor. Caso todos os
+  testes passem, usa-se a cor verde para imprimir os resultados. A 
   imagem a baixo demonstra de forma simplificada qual é o ritmo comum dentro do
-  ciclo do Test-driven Development.
+  ciclo do Desenvolvimento Orientado a Testes.
 
   \begin{figure}[H]
     \centering
@@ -215,7 +219,7 @@
   \end{lstlisting}
 
   Esse novo teste é descrito dentro de um bloco \code{add} onde todos os 
-  compartamentos desse método são testados. Executando a suíte de testes
+  comportamentos desse método são testados. Executando a suíte de testes
   novamente.
 
   \begin{lstlisting}[language=bash]
@@ -297,45 +301,47 @@
 
   \section{Design de Software em TDD}
 
-  O Test-driven Development permite que o desenvolvedor que está trabalhando 
-  em um módulo pense como serão as responsabilidades, interfaces, serviços os 
-  quais serão disponibilizados por esse módulo, enquanto escreve os testes. 
+  O Desenvolvimento Orientado a Testes permite que o desenvolvedor que está 
+  trabalhando 
+  em um módulo pense como serão as responsabilidades, interfaces e serviços que 
+  serão disponibilizados por esse módulo, enquanto escreve os testes. 
   Depois, quando vai escrever o código de produção, pode se preocupar somente em
   implementar o necessário para passar nos testes já feitos. Fazendo assim, 
   criamos um ritmo entre codificação e teste até que todos os testes criados 
   sejam implementados.
 
   Pensando no design do projeto, os desenvolvedores do projeto podem criar
-  classes e módulos mais coesos e menos acopladas por que, durante a fase de 
+  classes e módulos mais coesos e menos acoplados por que, durante a fase de 
   elaboração dos testes, conseguem visualizar a arquitetura geral da aplicação e
   melhorar como o componente que irão desenvolver conversa com os outros 
   componentes. Em alguns testes, os desenvolvedores os escrevem usando o 
   componente em desenvolvimento como já estivesse pronto e validam se
   esse consegue se comunicar com suas interfaces.
 
-  Em Test-driven Development, o código desenvolvido é mantido dentro do controle
+  Em Desenvolvimento Orientado a Testes, o código desenvolvido é mantido dentro do controle
   intelectual do desenvolvedor, já que o próprio escreveu os testes e ele ou 
   ela está fazendo continuamente pequenas alterações de design e decisões de 
   implementação, aumentando as funcionalidades do programa em um certo ritmo 
   contínuo.
 
-  \section{Desenvolvimento Ágil e Test-driven Development}
+  \section{Desenvolvimento Ágil e Desenvolvimento Orientado a Testes}
 
-  Test-driven development é uma prática sugerida dentro do "Extremming 
-  Programming", também muito conhecido por XP, por Kent Beck. XP é surgiu nos
+  Desenvolvimento Orientado a Testes é uma prática sugerida dentro do "Extremming 
+  Programming", também muito conhecido por XP, por Kent Beck. XP surgiu nos
   Estados Unidos e tem ganhado bastante espaço no desenvolvimento de software
   pois é um conjunto de valores, principios e práticas que fazem os softwares 
   serem produzidos em menos tempo e de forma mais econômica que o habitual.
 
-  Desenvolvimento incremental é uma prática que não só traz benefícios. Ao se
-  adicionar novas funcionalidade a um software, há um risco de falhas serem 
-  introduzidas. O XP adotou o uso de Test-driven Development como um mecanismo
+  Desenvolvimento incremental é uma prática que não traz só benefícios. Ao se
+  adicionar novas funcionalidades a um software, há um risco de falhas serem 
+  introduzidas. O XP adotou o uso de Desenvolvimento Orientado a Testes
+  como um mecanismo
   de proteção impedindo que algo que já estivesse funcionando fosse quebrado
   e não detectado. “O desenvolvimento orientado a testes é uma forma de lidar 
   com o medo durante a programação (BECK, 2003).”
 
   Os testes automatizados criados pelos desenvolvedores formam uma base de 
-  testes que pode ser executada sempre que necessário visualizar se tudo está
+  testes que pode ser executada sempre que for necessário visualizar se tudo está
   funcionando normalmente. Isso não impede que falhas sejam inseridas, porém
   é uma forma de detecção possibilitando uma correção efetiva e barata, impedindo
   que bugs se acumulem com o passar do tempo.
@@ -365,8 +371,8 @@
 
   Consertar a falha identificada é fácil, porém encontrar onde está acontecendo
   o problema é o que leva a fase de depuração ser tão longa. As equipes de 
-  desenvolvimento podem usar o Test-driven Development para serem capazes de
-  identificar mais rapidamente essas falhas.
+  desenvolvimento podem usar o Desenvolvimento Orientado a Testes
+  para serem capazes de identificar mais rapidamente essas falhas.
 
   Além disso, ao se consertar uma falha local, existe uma possibilidade (entre
   20 a 50 por cento) de se introduzir uma nova falha. As bases de testes 
@@ -376,7 +382,7 @@
 
   \section{Conclusão}
 
-  Em vista dos fatos mencionados, é possível observar que o test-driven development 
+  Em vista dos fatos mencionados, é possível observar que o Desenvolvimento Orientado a Testes 
   sem dúvida auxilia o processo de desenvolvimento de software de diversas
   maneiras. Essa prática melhora a qualidade do software como já foi discutido
   e se utilizado corretamente diminui custos relacionados a correção de bugs 
@@ -430,7 +436,8 @@
   /willians_TDD_Defect-Reducion_Practice.pdf}. Acessado em 1º de Junho de 2016.
 
   André Faria Gomes, Agile, Desenvolvimento de Software com entregas frequentes
-  e foco no valor de negócio. Casa do Código.
+  e foco no valor de negócio. Casa do Código. ISBN: 978-85-66250-12-1. Acessado
+  em 10 de junho de 2016.
   
   \end{flushleft}
 
